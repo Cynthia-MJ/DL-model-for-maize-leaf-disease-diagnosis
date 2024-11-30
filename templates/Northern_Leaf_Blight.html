@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+ 
+    <title>MAIZE DISEASE PREDICTION</title>
+ 
+    <style>
+        body {
+            background-image: url('static/maize.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+ 
+        .border img {
+            border-radius: 25px;
+            border: 2px solid black;
+            margin-left: 24%;
+        }
+    </style>
+</head>
+ 
+<body>
+ 
+ 
+    <div class="container my-2">
+        <div class="row mb-5">
+ 
+            <div class="col-sm" style="margin-bottom: 23px;">
+                <span class="border border-primary">
+                    <h1 style="padding: 40px;background-color: lightgray;color: black;border: 5px solid lightgray;border-radius: 25px;margin-top: -4%;" class="text-center mb-5 content-h1">
+                        Not Healthy </h1>
+                    <img src="{{ user_image }}" alt="User Image" class="img-thumbnail">
+                     
+                </span>
+            </div>
+ 
+            <div class="col-sm">
+ 
+                <div>
+                    <h1 style="padding: 15px; background-color: lightgray; color: black; border: 5px solid lightgray; border-radius: 25px;"
+                        class="text-center mb-5 content-h1">
+                        {{pred_output}} </h1>
+                </div>
+
+                <style>
+                .details {
+                    background-color: lightgray;
+                    padding: 10px;
+                    border: 1px solid lightgray;
+                    border-radius: 25px;
+             }
+    </style>
+    </head>
+    <body>
+                <div class="details">
+ 
+                    <p>
+                        Maize Northern Leaf Blight (NLB) is a widespread fungal disease causing significant yield losses in susceptible maize varieties. The fungus, Exserohilum turcicum, thrives in humid climates and readily colonizes corn leaves, hindering photosynthesis and ultimately impacting grain production.
+                    </p>
+                    <h5>Symptoms:</h5>
+                    <p>
+                        <li>Long, elliptical brown lesions on leaves, often starting from the lower leaves and progressing upwards.</li> 
+                        <li>Lesions may enlarge and merge, covering large areas of leaf tissue and leading to premature defoliation.</li> 
+                        <li>The dead leaf areas may exhibit dark fungal growth, especially under moist conditions.</li>
+                        <li>Stunted growth, reduced ear size, and premature kernel abortion may occur in severe cases.</li>
+                    </p>
+                    <h5>Treatment:</h5>
+                    <h6>Preventative measures:</h6>
+                    <p>
+                        <li><b>Resistant varieties:</b> Planting NLB-resistant maize varieties is the most effective and long-term solution. Consult your local seed suppliers or agricultural extension service for recommendations suitable for your region.</li>
+                        <li><b>Crop rotation:</b> Rotating maize with non-host crops like sorghum or soybeans disrupts the fungal lifecycle and reduces inoculum levels in the soil.</li> 
+                        <li><b>Tillage practices:</b> Conventional tillage can help bury infected plant debris, hindering fungal survival. However, consider conservation tillage options to minimize soil erosion.</li> 
+                        <li><b>Avoid overhead irrigation::</b> Overhead watering creates prolonged leaf wetness, favoring fungal infection. Opt for alternative irrigation methods like drip irrigation when possible.</li> 
+
+                    </p>
+                    <h6>Curative measures:</h6>
+                    <p>
+                        <li><b>Fungicides:</b> Foliar fungicides can be effective in controlling NLB, especially if applied early in the disease development stage. However, use fungicides strategically due to potential cost and environmental concerns. Consult an agricultural specialist for specific recommendations and application timing.</li>
+                        <li><b>Scouting and monitoring:</b> Regularly monitor your maize fields for early signs of NLB to enable prompt intervention and minimize disease spread.</li> 
+                    </p>
+                    <h5>Additional tips:</h5>
+                    <p>
+                        <li>Maintain good field sanitation by removing and destroying infected plant debris after harvest.</li> 
+                        <li>Implement integrated pest management (IPM) strategies that combine multiple control methods for a sustainable approach to managing NLB.</li> 
+                    </p>
+
+                    <p>
+                        Remember, Early detection and proactive management are crucial in minimizing the impact of NLB. By implementing a combination of preventative and curative measures, you can protect your maize yields and ensure a successful harvest. <br>                  
+                    </p>
+
+                    <span class="open_button">
+                        <a href="chatbot" target="_blank">
+                            <img src="static/chat-icon.png" width="40px;" height="40px;">
+                        </a>
+                    </span>
+                                
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+</body>
+ 
+</html>

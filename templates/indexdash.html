@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maize Disease Prediction Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('static/maize.jpg');
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        #graph {
+            width: 100%;
+            height: 300px;
+        }
+
+        #disease-analysis {
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Maize Disease Prediction Dashboard</h1>
+        <div id="season">
+            <h2>Monthly Statistics</h2>
+            <canvas id="graph"></canvas>
+        </div>
+        <div id="analysis">
+            <h2>Disease Analysis</h2>
+            <div id="disease-analysis"></div>
+        </div>
+        <div id="prediction">
+            
+            <form id="prediction-form" action="/" method="POST">
+                <label for="predicted_disease"></label>     
+                    
+                </select>
+                
+            </form>
+        </div>
+        <div>
+            <a href="/index.html"><button>Upload Page</button></a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to fetch CSV data
+            async function fetchCSV(url) {
+                const response = await fetch(url);
+                const data = await response.text();
+                return data;
+            }
+
+            // Function to parse CSV data
+            function parseCSV(csv) {
+                const lines = csv.trim().split('\n');
+                const headers = lines[0].split(',');
+                const rows = [];
+
+                for (let i = 1; i < lines.length; i++) {
+                    const row = lines[i].split(',');
+                    const rowData = {};
+
+                    for (let j = 0; j < headers.length; j++) {
+                        rowData[headers[j]] = row[j];
+                    }
+
+                    console.log("Parsed row data:", rowData);
+
+                    rows.push(rowData);
+                }
+
+                return rows;
+            }
+
+            // Function to generate a simple bar graph
+function generateGraph(diseaseCounts) {
+    const ctx = document.getElementById('graph').getContext('2d');
+    console.log("Disease Counts:", diseaseCounts); // Add this line
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: diseaseCounts.map(entry => entry.Month),
+            datasets: [
+                {
+                    label: 'Northern Leaf Blight',
+                    data: diseaseCounts.map(entry => parseInt(entry['Northern Leaf Blight'])),
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Gray Leaf Spot',
+                    data: diseaseCounts.map(entry => parseInt(entry['Gray Leaf Spot'])),
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Common Rust',
+                    data: diseaseCounts.map(entry => parseInt(entry['Common Rust'])),
+                    backgroundColor: 'rgba(255, 206, 86, 0.5)',
+                    borderColor: 'rgba(255, 206, 86, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Healthy Maize',
+                    data: diseaseCounts.map(entry => parseInt(entry['Healthy Maize'])),
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                },
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+            // Function to display disease analysis
+            function displayAnalysis(diseaseCounts) {
+                const analysis = document.getElementById('disease-analysis');
+                analysis.innerHTML = '';
+
+                const diseases = Object.keys(diseaseCounts[0]).filter(key => key !== 'Month');
+                const totalCases = {};
+
+                diseases.forEach(disease => {
+                    totalCases[disease] = diseaseCounts.reduce((total, entry) => total + parseInt(entry[disease]), 0);
+                });
+
+                const ul = document.createElement('ul');
+                diseases.forEach(disease => {
+                    const li = document.createElement('li');
+                    li.textContent = `${disease}: ${totalCases[disease]} cases`;
+                    ul.appendChild(li);
+                });
+
+                analysis.appendChild(ul);
+            }
+
+            // Update disease counts and regenerate graph on form submission
+document.getElementById('prediction-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const predictedDisease = document.getElementById('predicted_disease').value;
+
+    // Fetch CSV data
+    const csvUrl = "static/Count.csv"; 
+    try {
+        const csv = await fetchCSV(csvUrl);
+        console.log("Fetched CSV:", csv); 
+        const diseaseCounts = parseCSV(csv);
+        console.log("Parsed CSV:", diseaseCounts); 
+
+        // Update disease count for the predicted disease in the current month
+        const currentMonth = new Date().toLocaleString('en-us', { month: 'long' });
+        console.log("Current Month:", currentMonth); // Add this line
+
+        diseaseCounts.forEach(entry => {
+            if (entry.Month === currentMonth) {
+                console.log("Updating entry for current month:", entry); // Add this line
+                entry[predictedDisease]++;
+                console.log("Updated entry:", entry); // Add this line
+            }
+        });
+
+        // Regenerate graph and display analysis
+        generateGraph(diseaseCounts);
+        displayAnalysis(diseaseCounts);
+    } catch (error) {
+        console.error('Error fetching or parsing CSV:', error);
+    }
+});
+
+
+            // Call functions to fetch CSV data, generate graph, and display analysis initially
+            const csvUrl = "static/Count.csv"; // Change to your CSV file URL
+            fetchCSV(csvUrl)
+                .then(csv => {
+                    const diseaseCounts = parseCSV(csv);
+                    generateGraph(diseaseCounts);
+                    displayAnalysis(diseaseCounts);
+                })
+                .catch(error => {
+                    console.error('Error fetching CSV:', error);
+                });
+        });
+    </script>
+</body>
+</html>

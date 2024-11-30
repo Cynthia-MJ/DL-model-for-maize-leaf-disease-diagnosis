@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+ 
+    <title>MAIZE DISEASE PREDICTION</title>
+ 
+    <style>
+        body {
+            background-image: url('static/maize.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+ 
+        .border img {
+            border-radius: 25px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+ 
+<body>
+ 
+ 
+    <div class="container my-2">
+        <div class="row mb-5">
+ 
+            <div class="col-sm" style="margin-bottom: 23px;">
+                <span class="border border-primary">
+                    <img src="{{ user_image }}" alt="User Image" class="img-thumbnail">
+                     
+                </span>
+            </div>
+ 
+            <div class="col-sm">
+ 
+                <div>
+                    <h1 style="padding: 15px; background-color: lightgray; color: black; border: 5px solid lightgray; border-radius: 25px;"
+                        class="text-center mb-5 content-h1">
+                        {{pred_output}} </h1>
+                </div>
+
+                <style>
+                    .details {
+                        background-color: lightgray;
+                        padding: 10px;
+                        border: 1px solid lightgray;
+                        border-radius: 25px;
+                }
+    </style>
+    </head>
+    <body>
+                <div class="details">
+ 
+                    <p>
+                        However, I can tell you what a healthy maize plant looks like and how to maintain its health through good practices: <br>                                            
+                    </p>
+                    <h5>Characteristics of a healthy maize plant:</h5>
+                    <p>
+                        <li><b>Vibrant green foliage:</b> The leaves should be a deep, rich green color, free from discoloration or spotting.</li>
+                        <li><b>Upright and sturdy stalks:</b> The stalks should be strong and vertical, not wilting or leaning.</li> 
+                        <li><b>Uniform growth:</b> Plants should be developing at a similar rate, without any significant variations in size or maturity.</li>
+                        <li><b>Well-developed root system:</b> The root system should be extensive and healthy, anchoring the plant and providing access to water and nutrients.</li> 
+                        <li><b>Plump, disease-free ears:</b> Ears should be well-formed, filled with kernels, and free from any signs of disease or insect damage.</li>  
+                    </p>
+                    <h5>Maintaining maize health:</h5>
+                    <p>
+                        <li><b>Proper planting practices:</b> Plant at the right density and depth according to your soil and variety.</li>
+                        <li><b>Balanced fertilization:</b> Ensure your maize receives adequate nutrients, but avoid overfertilization.</li> 
+                        <li><b>Optimal water management:</b> Provide sufficient water for proper growth and development, but avoid waterlogging.</li> 
+                        <li><b>Weed control:</b> Control weeds that compete with maize for resources and harbor pests.</li>
+                        <li><b>Pest and disease monitoring:</b> Regularly scout your fields for signs of pests and diseases and take timely action if necessary.</li> 
+                        <li><b>Crop rotation:</b> Rotate maize with other crops to break pest and disease cycles and improve soil health.</li> 
+
+                    </p>
+                    
+                    <p>
+                        By following these practices, you can create a healthy environment for your maize to thrive and achieve optimal yields. If you notice any abnormalities or concerns, it's best to consult with a qualified agronomist or your local agricultural extension service for specific advice tailored to your region and farming practices. <br>                  
+                    </p>
+
+                    <span class="open_button">
+                        <a href="/chatbot" target="_blank">
+                            <img src="static/chat-icon.png" width="40px;" height="40px;">
+                        </a>
+                    </span>
+                   
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+    
+</body>
+ 
+</html>

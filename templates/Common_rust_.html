@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+ 
+    <title>MAIZE DISEASE PREDICTION</title>
+ 
+    <style>
+        body {
+            background-image: url('static/maize.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+ 
+        .border img {
+            border-radius: 25px;
+            border: 2px solid black;
+            margin-left: 24%;
+        }
+    </style>
+</head>
+ 
+<body>
+ 
+   
+ 
+    <div class="container my-2">
+        <div class="row mb-5">
+ 
+            <div class="col-sm" style="margin-bottom: 23px;">
+                <span class="border border-primary">
+                    <h1 style="padding: 40px;background-color: lightgray;color: black;border: 5px solid lightgray;border-radius: 25px;margin-top: -4%;" class="text-center mb-5 content-h1">
+                        Not Healthy </h1>
+                    <img src="{{ user_image }}" alt="User Image" class="img-thumbnail">
+                     
+                </span>
+            </div>
+ 
+            <div class="col-sm">
+ 
+                <div>
+                    <h1 style="padding: 15px; background-color: lightgray; color: black; border: 5px solid lightgray; border-radius: 25px;"
+                        class="text-center mb-5 content-h1">
+                        {{pred_output}} </h1>
+                </div>
+
+                <style>
+                    .details {
+                        background-color: lightgray;
+                        padding: 10px;
+                        border: 1px solid lightgray;
+                        border-radius: 25px;
+                }
+        </style>
+        </head>
+        <body>
+                <div class="details">
+ 
+                    <p>
+                        Common maize rust is a fungal disease that can significantly reduce crop yields. Here's some information about it: <br>                                            
+                    </p>
+                    <h5>Symptoms:</h5>
+                    <p>
+                        <li>Yellow or orange pustules on leaves, often starting from the lower leaves and moving upwards.</li> 
+                        <li>Pustules may rupture and release orange spores, spreading the disease.</li> 
+                        <li>Stunted growth, wilting, and premature defoliation can occur in severe cases.</li>
+                    </p>
+                    <h5>Treatment:</h5>
+                    <p>
+                        <li><b>Fungicides:</b> Applying fungicides specifically targeted for common maize rust can be effective, but timing is crucial. Early intervention is key to prevent spore production and further spread. Consider consulting with a local agricultural extension agent or qualified agronomist for specific fungicide recommendations and application timing.</li>
+                        <li><b>Resistant varieties:</b> Planting maize varieties resistant to common rust is a preventative measure that can significantly reduce disease incidence. Research and choose varieties suitable for your specific region and climate.</li> 
+                        <li><b>Cultural practices:</b> Practices like crop rotation, removing infected plant debris, and avoiding overhead irrigation can help reduce the fungal buildup and spread of the disease.</li> 
+                    </p>
+                    <h5>Additional tips:</h5>
+                    <p>
+                        <li>Monitor your maize crop regularly for early signs of infection.</li> 
+                        <li>Practice good sanitation in your fields to minimize fungal spores.</li> 
+                        <li>Consider integrated pest management (IPM) strategies that combine multiple methods for long-term disease control.</li>
+                    </p>
+
+                    <p>
+                        Remember, prompt action and proper management are crucial in controlling common maize rust and protecting your crop yields. It's always advisable to consult with qualified agricultural professionals for specific advice tailored to your region and farming practices. <br>                  
+                    </p>
+
+                    <span class="open_button">
+                        <a href="/chatbot" target="_blank">
+                            <img src="static/chat-icon.png" width="40px;" height="40px;">
+                        </a>
+                    </span>
+                   
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+
+
+
+</body>
+ 
+</html>

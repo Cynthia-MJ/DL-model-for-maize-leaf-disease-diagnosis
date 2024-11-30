@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+ 
+    <title>MAIZE DISEASE PREDICTION</title>
+ 
+    <style>
+        body {
+            background-image: url('static/maize.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+ 
+        .border img {
+            border-radius: 25px;
+            border: 2px solid black;
+            margin-left: 24%;
+        }
+    </style>
+</head>
+ 
+<body>
+ 
+    
+ 
+    <div class="container my-2">
+        <div class="row mb-5">
+ 
+            <div class="col-sm" style="margin-bottom: 23px;">
+                <span class="border border-primary" style="  border-color: transparent !important;">
+                    <h1 style="padding: 40px;background-color: lightgray;color: black;border: 5px solid lightgray;border-radius: 25px;margin-top: -4%;" class="text-center mb-5 content-h1">
+                        Not Healthy </h1>
+                    <img src="{{ user_image }}" alt="User Image" class="img-thumbnail">
+                     
+                </span>
+            </div>
+ 
+            <div class="col-sm">
+ 
+                <div>
+                    <h1 style="padding: 15px; background-color: lightgray; color: black; border: 5px solid lightgray; border-radius: 25px;"
+                        class="text-center mb-5 content-h1">
+                        {{pred_output}} </h1>
+                </div>
+                
+                <style>
+                    .details {
+                        background-color: lightgray;
+                        padding: 10px;
+                        border: 1px solid lightgray;
+                        border-radius: 25px;
+                }
+    </style>
+    </head>
+    <body>
+
+                <div class="details">
+ 
+                    <p>
+                        Maize gray leaf spot is a fungal disease that can be quite destructive to maize crops, causing significant yield losses. Here's a breakdown of the disease and its management:
+                    </p>
+                    <h5>Symptoms:</h5>
+                    <p>
+                        <li><b>Lesions:</b> Oval or elliptical lesions appear on leaves, primarily starting from the lower leaves and progressing upwards. These lesions are initially gray-green but turn brown or ash-colored as they mature.</li>
+                        <li><b>Leaf blighting:</b> As the lesions expand, they can merge, causing leaf blighting and premature defoliation.</li> 
+                        <li><b>Reduced growth and yield:</b> Severe infections can stunt plant growth, reduce ear size, and ultimately lead to significant yield losses.</li> 
+                    </p>
+                    <h5>Treatment:</h5>
+                    <h6>Preventative measures:</h6>
+                    <p>
+                        <li><b>Resistant varieties:</b> Planting maize varieties with inherent resistance to gray leaf spot is the most effective and economical long-term control strategy. Consult with your local agricultural extension service or seed suppliers for recommendations on resistant varieties suitable for your region.</li>
+                        <li><b>Crop rotation:</b> Rotating maize with non-host crops like soybeans or sorghum helps to break the fungal lifecycle and reduce disease inoculum in the soil.</li> 
+                        <li><b>Tillage:</b> Conventional tillage practices can help to bury infected plant debris, reducing the fungal overwintering population. However, be mindful of soil erosion risks and consider conservation tillage options when applicable.</li> 
+                    </p>
+                    <h6>Curative measures:</h6>
+                    <p>
+                        <li><b>Fungicides:</b> Foliar fungicides can be effective in controlling gray leaf spot, particularly if applied early in the disease development stage. However, fungicide use should be considered based on economic feasibility and potential environmental impacts. Consult with a qualified agronomist or agricultural extension agent for specific fungicide recommendations and application timing.</li>
+                        <li><b>Scouting and monitoring:</b> Regularly scouting your maize fields for early signs of gray leaf spot allows for timely intervention and control measures.</li> 
+                    </p>
+                    <h5>Additional tips:</h5>
+                    <p>
+                        <li>Practice good field sanitation by removing and destroying infected plant debris after harvest.</li> 
+                        <li>Avoid overhead irrigation as this can favor fungal spore dispersal and infection.</li> 
+                        <li>Implement integrated pest management (IPM) strategies that combine multiple control methods for a more sustainable approach to managing gray leaf spot.</li>
+                    </p>
+
+                    <p>
+                        Remember, early detection and proactive management are key to minimizing the impact of maize gray leaf spot on your crops. By implementing a combination of preventative and curative measures, you can protect your maize yields and ensure a successful harvest. <br>                  
+                    </p>
+                    
+                    <span class="open_button">
+                        <a href="/chatbot" target="_blank">
+                            <img src="static/chat-icon.png" width="40px;" height="40px;">
+                        </a>
+                    </span>
+                   
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+
+    
+
+</body>
+ 
+</html>

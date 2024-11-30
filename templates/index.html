@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap" rel="stylesheet">
+
+    <title>MAIZE LEAF PLANT DISEASE PREDICTION</title>
+
+    <style>
+        body {
+            background-image: url('static/maize.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .carousel-inner img {
+            height: 70vh;
+        }
+
+        form {
+            display: flex;
+            height: 85vh;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            width: 60%;
+            text-align: center;
+            margin: auto;
+        }
+
+        .details h2 {
+            position: relative;
+            top: 100px;
+            margin: auto;
+            color: rgb(18, 231, 231);
+            font-size: 3rem;
+        }
+
+        label:hover {
+            transform: scale(1.03);
+        }
+
+        .details h2 {
+            position: relative;
+            top: 100px;
+            margin: auto;
+            color: black;
+            font-size: 3rem;
+        }
+
+        .gallery-h1 h1 {
+            background-color: rgb(44, 43, 43);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .details h1 {
+            color: black;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: lightgray;
+        }
+
+        .upload {
+            font-size: 20px;
+            background-color: lightgray;
+            border-radius: 20px;
+            outline: none;
+            width: 315px;
+            color: rgb(0, 0, 0);
+            border: 3px solid rgb(45, 47, 49);
+        }
+
+        ::-webkit-file-upload-button {
+            color: white;
+            padding: 20px;
+            border: 2px solid rgb(129, 129, 129);
+            background-color: rgb(129, 129, 129);
+            border-radius: 15px;
+        }
+
+        ::-webkit-file-upload-button:hover {
+            border-radius: 20px;
+            border: 2px solid rgb(177, 174, 174);
+        }
+
+        input[type="submit"] {
+            position: absolute;
+            margin-top: 200px;
+            padding: 15px 35px;
+            background-color: white;
+            border-radius: 15px;
+            color: black;
+            font-size: 1.5rem;
+            border: 3px solid black;
+        }
+
+        .carousel-caption {
+            background: rgba(24, 25, 26, 0.5);
+            border-radius: 10px;
+        }
+
+        .carousel-caption h3 {
+            font-family: 'Rowdies', cursive;
+            color: yellow;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .carousel-caption p {
+            padding: 7px;
+        }
+
+        .img-thumbnail {
+            height: 300px;
+        }
+
+        .Content-h5 {
+            padding: 15px;
+            background-color: rgb(153, 156, 150);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        @media only screen and (max-width: 325px) {
+            body {
+                font-size: x-small;
+            }
+        }
+        #loading-popup {
+        position: fixed; /* Keep the popup positioned over the main content */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; /* Cover the entire viewport */
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        display: flex; /* Center the content vertically and horizontally */
+        justify-content: center;
+        align-items: center;
+        }
+
+        .loading-circle {
+        width: 100px;
+        height: 100px;
+        border: 5px solid #fff; /* White border for the circle */
+        border-radius: 50%;
+        border-top-color: transparent; /* Transparent top for animation */
+        animation: spin 1s linear infinite;
+        }
+
+        .hidden {
+        display: none;
+        }
+
+        @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <div class="container-fluid details">
+            <h1 class="text-center mt-5 ">Predict Maize Disease & Get Cure</h1>
+            <h2 class="text-center mt-4 mb-4" style="font-size: 2rem;">Upload a picture of a maize leaf</h2>
+            <form action="/predict" method="post" enctype="multipart/form-data" id="predictForm">
+                <input type="file" name="image" class="upload">
+                <input type="submit" value="Predict" id="submitButton">
+                <div id="loading" style="display: none;" >
+                    <div class="loading-circle" style="margin-left: 2%;"></div>
+                    <span style="color: white;">Classfying...</span>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Bootstrap and other scripts -->
+    <script>
+        const predictForm = document.getElementById('predictForm');
+        const submitButton = document.getElementById('submitButton');
+        const loadingElement = document.getElementById('loading');
+
+        function submitForm() {
+        return new Promise((resolve, reject) => {
+            // Simulate delayed action (replace with your actual logic)
+            setTimeout(() => {
+            // Submit the form programmatically
+            predictForm.submit();
+            resolve(); // Resolve the promise after submission
+            }, 5000); // Adjust delay as needed (in milliseconds)
+        });
+        }
+
+        predictForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Enable loading indicator and disable submit button
+        loadingElement.style.display = 'block';
+        submitButton.disabled = true;
+
+        // Submit form asynchronously and handle success/failure
+        submitForm()
+            .then(() => {
+            // Hide loading indicator after successful submission
+            loadingElement.style.display = 'none';
+            // Transition to the next screen here (replace with your logic)
+            console.log('Form submitted successfully! Transition to next screen.');
+            // Example: Redirect to a new page using window.location.href
+            // window.location.href = '/next-screen';
+            })
+            .catch(() => {
+            // Handle any errors during submission
+            console.error('Error submitting form.');
+            // Re-enable submit button and hide loading indicator
+            loadingElement.style.display = 'none';
+            submitButton.disabled = false;
+            });
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

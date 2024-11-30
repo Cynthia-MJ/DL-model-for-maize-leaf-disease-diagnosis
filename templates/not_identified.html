@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Not Identified</title>
+    <style>
+        body {
+            font-family:inherit;
+            background: url("static/maize.jpg");
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        img {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+        .back-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img style="max-width: 100px; max-height: 100px;"src="static/invalid.png" alt="Uploaded Image">
+        <h2>Image Not Identified as Maize Leaf</h2>
+        <p>The image you uploaded couldn't be identified as a maize leaf.</p>
+        <p>Please make sure you upload an image containing a maize leaf.</p>
+        <img style="max-width: 250px; max-height: 250px;"src="{{ user_image }}" alt="Uploaded Image">
+        <div class="back-button">
+            <a href="index.html">Back to Upload</a>
+        </div>
+    </div>
+</body>
+</html>
